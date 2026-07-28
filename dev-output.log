@@ -1,0 +1,2690 @@
+
+> nutriplan@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.12 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.117:3000
+- Environments: .env.local
+✓ Ready in 726ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 3.2s (next.js: 3.1s, application-code: 128ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 20ms (next.js: 9ms, application-code: 10ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 17ms (next.js: 8ms, application-code: 10ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 17ms (next.js: 9ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 8ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 20ms (next.js: 10ms, application-code: 11ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 9ms, application-code: 7ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 21ms (next.js: 9ms, application-code: 11ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 15ms (next.js: 8ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 15ms (next.js: 8ms, application-code: 7ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 17ms (next.js: 8ms, application-code: 9ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 14ms (next.js: 8ms, application-code: 6ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 9ms, application-code: 7ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 7ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 8ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+⨯ ./app/globals.css:1139:8
+Parsing CSS source code failed
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  [90m1137 |[0m   }
+  [90m1138 |[0m }
+[31m[1m>[0m [90m1139 |[0m @[36mimport[0m url([32m"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...[0m
+  [90m     |[0m        [31m[1m^[0m
+  [90m1140 |[0m :root {
+  [90m1141 |[0m   --background: #ffffff;
+  [90m1142 |[0m   --foreground: #[35m0[0mf172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+ GET / 500 in 16ms (next.js: 8ms, application-code: 8ms)
+[browser] Uncaught Error: ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+    at <unknown> (Error: (./app/globals.css:1139:8)
+    at <unknown> (./app/globals.css:1139:8)
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+[browser] ./app/globals.css:1139:8
+Parsing CSS source code failed
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+@import rules must precede all rules aside from @charset and @layer statements
+
+Generated code of PostCSS transform of file content of app/globals.css:
+./app/globals.css:1139:8
+  1137 |   }
+  1138 | }
+> 1139 | @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600...
+       |        ^
+  1140 | :root {
+  1141 |   --background: #ffffff;
+  1142 |   --foreground: #0f172a;
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component] 
+ GET / 200 in 464ms (next.js: 139ms, application-code: 325ms)
+ GET /plan 200 in 511ms (next.js: 486ms, application-code: 25ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /plan 200 in 26ms (next.js: 9ms, application-code: 16ms)
+ GET /plan 200 in 32ms (next.js: 9ms, application-code: 23ms)
+ GET /plan 200 in 20ms (next.js: 8ms, application-code: 12ms)
+ GET /plan 200 in 32ms (next.js: 7ms, application-code: 25ms)
+ GET /plan 200 in 19ms (next.js: 8ms, application-code: 11ms)
+ GET /plan 200 in 36ms (next.js: 7ms, application-code: 29ms)
+ GET /plan 200 in 23ms (next.js: 9ms, application-code: 14ms)
+ GET /plan 200 in 31ms (next.js: 7ms, application-code: 24ms)
+ GET /plan 200 in 22ms (next.js: 8ms, application-code: 14ms)
+ GET /plan 200 in 34ms (next.js: 9ms, application-code: 26ms)
+ GET /plan 200 in 22ms (next.js: 9ms, application-code: 13ms)
+ GET /plan 200 in 27ms (next.js: 6ms, application-code: 21ms)
+ GET /plan 200 in 21ms (next.js: 9ms, application-code: 12ms)
+ GET /plan 200 in 36ms (next.js: 9ms, application-code: 27ms)
+ GET /plan 200 in 23ms (next.js: 10ms, application-code: 13ms)
+ GET /plan 200 in 30ms (next.js: 5ms, application-code: 24ms)
+ GET /plan 200 in 26ms (next.js: 12ms, application-code: 14ms)
+ GET /plan 200 in 48ms (next.js: 6ms, application-code: 42ms)
+ GET /plan 200 in 20ms (next.js: 7ms, application-code: 13ms)
+ GET /plan 200 in 24ms (next.js: 6ms, application-code: 18ms)
+ GET / 200 in 62ms (next.js: 10ms, application-code: 52ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /plan 200 in 29ms (next.js: 8ms, application-code: 21ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 1622ms (next.js: 1583ms, application-code: 39ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 582ms (next.js: 571ms, application-code: 11ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 594ms (next.js: 581ms, application-code: 13ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 604ms (next.js: 589ms, application-code: 15ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib/prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app/dashboard/page.tsx:1:1)
+    at module evaluation (app/dashboard/page.tsx:17:1)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+ GET /results?age=23&gender=male&heightCm=174&weightKg=68&activityLevel=moderate&goal=gain&targetRateKg=0.5&dietType=vegetarian&allergies=Eggs%2CShellfish%2CGluten 200 in 1141ms (next.js: 1107ms, application-code: 34ms)
+⨯ upstream image response failed for https://images.unsplash.com/photo-1559181567-c3190ca9be46?w=400&q=80 404
+ GET /auth/signin 200 in 427ms (next.js: 398ms, application-code: 29ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\api\auth\[...nextauth]\route.ts:1:1)
+    at Object.<anonymous> (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/api/auth/providers'
+}
+ GET /api/auth/providers 500 in 528ms (next.js: 514ms, application-code: 14ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\api\auth\[...nextauth]\route.ts:1:1)
+    at Object.<anonymous> (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/api/auth/error'
+}
+[browser] ClientFetchError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON. Read more at https://errors.authjs.dev#autherror
+ GET /api/auth/error 500 in 61ms (next.js: 46ms, application-code: 15ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib/prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app/api/auth/[...nextauth]/route.ts:1:1)
+    at Object.<anonymous> (.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\api\auth\[...nextauth]\route.ts:1:1)
+    at Object.<anonymous> (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/api/auth/register'
+}
+ POST /api/auth/register 500 in 254ms (next.js: 242ms, application-code: 12ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 602ms (next.js: 586ms, application-code: 15ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 551ms (next.js: 543ms, application-code: 8ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib/prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app/dashboard/page.tsx:1:1)
+    at module evaluation (app/dashboard/page.tsx:17:1)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+ GET /auth/signin 200 in 74ms (next.js: 10ms, application-code: 64ms)
+  Reload env: .env.local
+✓ Compiled in 4ms
+ GET /auth/signin 200 in 203ms (next.js: 53ms, application-code: 150ms)
+ GET /auth/signin 200 in 120ms (next.js: 7ms, application-code: 113ms)
+ GET /auth/signin 200 in 81ms (next.js: 25ms, application-code: 56ms)
+ GET /auth/signin 200 in 83ms (next.js: 7ms, application-code: 76ms)
+ GET /auth/signin 200 in 81ms (next.js: 55ms, application-code: 26ms)
+ GET /auth/signin 200 in 187ms (next.js: 8ms, application-code: 179ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\api\auth\[...nextauth]\route.ts:1:1)
+    at Object.<anonymous> (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/api/auth/providers'
+}
+ GET /api/auth/providers 500 in 216ms (next.js: 197ms, application-code: 19ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\auth\signin\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\auth\signin\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__05_pijn._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\api\auth\[...nextauth]\route.ts:1:1)
+    at Object.<anonymous> (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js:10:3)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/api/auth/error'
+}
+[browser] ClientFetchError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON. Read more at https://errors.authjs.dev#autherror
+    at async handleSubmit (app/auth/signin/page.tsx:38:20)
+  36 |     }
+  37 |
+> 38 |     const result = await signIn("credentials", {
+     |                    ^
+  39 |       email,
+  40 |       password,
+  41 |       redirect: false, (app/auth/signin/page.tsx:38:20)
+ GET /dashboard 500 in 761ms (next.js: 729ms, application-code: 32ms)
+ GET /api/auth/error 500 in 97ms (next.js: 82ms, application-code: 14ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\auth\signin\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\auth\signin\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib\prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app\dashboard\page.tsx:1:1)
+    at module evaluation (c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__14au-_l._.js:207:47)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 524ms (next.js: 513ms, application-code: 11ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__1qm-tib._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\auth\signin\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at module evaluation (lib/prisma.ts:5:23)
+    at module evaluation (auth.ts:6:1)
+    at module evaluation (app/dashboard/page.tsx:1:1)
+    at module evaluation (app/dashboard/page.tsx:17:1)
+  3 |
+  4 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+> 5 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => P...
+    |                       ^
+  6 |
+  7 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  8 |
+✓ Compiled in 145ms
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__0czwjwa._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\dashboard\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib\prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 |
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__0czwjwa._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\dashboard\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib\prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 | {
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 390ms (next.js: 365ms, application-code: 25ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[root-of-the-server]__0czwjwa._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\ssr\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\dashboard\page.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib/prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 |
+  Reload env: .env.local
+ GET / 200 in 345ms (next.js: 100ms, application-code: 245ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /plan 200 in 34ms (next.js: 18ms, application-code: 17ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /results?age=25&gender=male&heightCm=165&weightKg=76&activityLevel=moderate&goal=maintain&targetRateKg=0.5&dietType=non_veg&allergies= 200 in 98ms (next.js: 68ms, application-code: 30ms)
+ GET /auth/signin 200 in 38ms (next.js: 22ms, application-code: 16ms)
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__019__o1._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib\prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 | {
+  page: '/api/auth/providers'
+}
+ GET /api/auth/providers 500 in 134ms (next.js: 114ms, application-code: 20ms)
+[browser] ClientFetchError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON. Read more at https://errors.authjs.dev#autherror
+⨯ Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__019__o1._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib\prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 | {
+  page: '/api/auth/error'
+}
+ GET /api/auth/error 500 in 29ms (next.js: 20ms, application-code: 9ms)
+[browser] Uncaught Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Require stack:
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\@prisma\client\default.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[root-of-the-server]__019__o1._.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\chunks\[turbopack]_runtime.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\.next\dev\server\app\api\auth\[...nextauth]\route.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\require.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\load-components.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\build\utils.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\router-server.js
+- c:\Users\us889\Desktop\Projects\Development\nutriplan\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (lib/prisma.ts:8:23)
+   6 |
+   7 | // eslint-disable-next-line @typescript-eslint/no-explicit-any
+>  8 | const { PrismaClient } = require("@prisma/client") as { PrismaClient: new (opts?: any) => ...
+     |                       ^
+   9 |
+  10 | const globalForPrisma = globalThis as unknown as { prisma: PrismaClientType };
+  11 |
+[?25h
+
+c:\Users\us889\Desktop\Projects\Development\nutriplan>

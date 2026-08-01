@@ -4,15 +4,31 @@ export const step1Schema = z.object({
   age: z.coerce.number().int().min(10, "Age must be at least 10").max(100, "Age must be at most 100"),
   gender: z.enum(["male", "female", "other"]),
   unit: z.enum(["metric", "imperial"]),
-  heightCm: z.coerce.number().min(100, "Height must be at least 100cm").max(250, "Height must be at most 250cm").optional(),
-  heightFt: z.coerce.number().min(3).max(8).optional(),
-  heightIn: z.coerce.number().min(0).max(11).optional(),
-  weightKg: z.coerce.number().min(30, "Weight must be at least 30kg").max(300, "Weight must be at most 300kg").optional(),
-  weightLbs: z.coerce.number().min(66, "Weight must be at least 66lbs").max(660, "Weight must be at most 660lbs").optional(),
-}).refine(
-  (d) => d.unit === "metric" ? !!d.heightCm && !!d.weightKg : !!d.heightFt && !!d.weightLbs,
-  { message: "Please fill in all height and weight fields" }
-);
+  heightCm: z.coerce.number().optional(),
+  heightFt: z.coerce.number().optional(),
+  heightIn: z.coerce.number().optional(),
+  weightKg: z.coerce.number().optional(),
+  weightLbs: z.coerce.number().optional(),
+}).superRefine((d, ctx) => {
+  if (d.unit === "metric") {
+    if (!d.heightCm || d.heightCm < 100 || d.heightCm > 250) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Height must be between 100–250 cm", path: ["heightCm"] });
+    }
+    if (!d.weightKg || d.weightKg < 30 || d.weightKg > 300) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Weight must be between 30–300 kg", path: ["weightKg"] });
+    }
+  } else {
+    if (!d.heightFt || d.heightFt < 3 || d.heightFt > 8) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Height feet must be between 3–8", path: ["heightFt"] });
+    }
+    if (d.heightIn === undefined || d.heightIn < 0 || d.heightIn > 11) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Inches must be between 0–11", path: ["heightIn"] });
+    }
+    if (!d.weightLbs || d.weightLbs < 66 || d.weightLbs > 660) {
+      ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Weight must be between 66–660 lbs", path: ["weightLbs"] });
+    }
+  }
+});
 
 export const step2Schema = z.object({
   activityLevel: z.enum(["sedentary", "light", "moderate", "active", "very_active"]),

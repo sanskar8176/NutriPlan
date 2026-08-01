@@ -107,6 +107,7 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
                           targetRateKg: String(plan.targetRateKg ?? 0.5),
                           dietType: plan.dietType,
                           allergies: plan.allergies.join(","),
+                          fromSaved: "1",
                         });
                         router.push(`/results?${p.toString()}`);
                       }}

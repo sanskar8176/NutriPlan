@@ -3,7 +3,30 @@ import Image from "next/image";
 import { ArrowRight, Zap, Target, BarChart3, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/index";
-import { HeroAnimation } from "@/components/three/hero-animation";
+import { HeroAnimation } from "@/components/three/hero-animation-client";
+import { prisma } from "@/lib/prisma";
+
+async function getPreviewMeals() {
+  try {
+    const [breakfast, lunch, dinner] = await Promise.all([
+      prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "breakfast" } }, orderBy: { fdcId: "asc" } }),
+      prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "lunch" } }, orderBy: { fdcId: "desc" } }),
+      prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "dinner" } }, orderBy: { fdcId: "asc", } }),
+    ]);
+    return [
+      breakfast && { name: breakfast.name, cal: Math.round(breakfast.calories), tag: "Breakfast", img: breakfast.image },
+      lunch     && { name: lunch.name,     cal: Math.round(lunch.calories),     tag: "Lunch",     img: lunch.image },
+      dinner    && { name: dinner.name,    cal: Math.round(dinner.calories),    tag: "Dinner",    img: dinner.image },
+    ].filter(Boolean);
+  } catch {
+    // DB not ready yet — fall back to static
+    return [
+      { name: "Grilled Salmon & Veggies", cal: 580, tag: "Dinner", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" },
+      { name: "Quinoa Power Bowl",        cal: 480, tag: "Lunch",  img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" },
+      { name: "Oatmeal with Berries",     cal: 320, tag: "Breakfast", img: "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80" },
+    ];
+  }
+}
 
 const features = [
   {
@@ -35,7 +58,8 @@ const stats = [
   { value: "Free", label: "Forever, no credit card" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const previewMeals = await getPreviewMeals();
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -153,11 +177,7 @@ export default function HomePage() {
           <p className="text-[var(--muted-foreground)] text-lg">Curated meals with accurate nutrition data — not generic filler.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { name: "Grilled Salmon & Veggies", cal: 580, tag: "Dinner", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" },
-            { name: "Quinoa Power Bowl", cal: 480, tag: "Lunch", img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" },
-            { name: "Oatmeal with Berries", cal: 320, tag: "Breakfast", img: "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80" },
-          ].map((meal) => (
+          {previewMeals.map((meal) => meal && (
             <Card key={meal.name} className="overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div className="relative h-48 overflow-hidden">
                 <Image

@@ -84,3 +84,25 @@ model Plan {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Food {
+  id          String   @id @default(cuid())
+  fdcId       Int      @unique
+  name        String   @unique
+  calories    Float
+  proteinG    Float
+  carbsG      Float
+  fatG        Float
+  fiberG      Float    @default(0)
+  servingSize String   @default("100g")
+  servingG    Float    @default(100)
+  image       String
+  mealTimes   String[]
+  dietTags    String[]
+  category    String
+  isActive    Boolean  @default(true)
+
+  @@index([dietTags])
+  @@index([mealTimes])
+  @@index([isActive])
+}

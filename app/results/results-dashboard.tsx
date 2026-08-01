@@ -1,17 +1,19 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { ArrowLeft, RefreshCw, Flame, Beef, Wheat, Droplets, BookmarkCheck, Bookmark, Loader2 } from "lucide-react";
+import {
+  ArrowLeft, RefreshCw, Flame, Beef, Wheat, Droplets,
+  BookmarkCheck, Bookmark, Loader2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/index";
 import { MacroDonutChart } from "@/components/charts/macro-donut";
 import { computeNutritionPlan } from "@/lib/calculations";
-import { getMealPlan } from "@/lib/food-data";
 import type { UserStats } from "@/lib/calculations";
-import type { DietTag, MealTime } from "@/lib/food-data";
+import type { DietTag, MealTime, FoodItem } from "@/lib/food-data";
 
 const MEAL_LABELS: Record<MealTime, string> = {
   breakfast: "🌅 Breakfast",
@@ -19,6 +21,8 @@ const MEAL_LABELS: Record<MealTime, string> = {
   dinner: "🌙 Dinner",
   snack: "🍎 Snacks",
 };
+
+const MEAL_ORDER: MealTime[] = ["breakfast", "lunch", "dinner", "snack"];
 
 const MACRO_CARDS = [
   { key: "calories" as const, label: "Daily Calories", unit: "kcal", icon: Flame, color: "text-orange-500" },
@@ -31,10 +35,13 @@ export function ResultsDashboard() {
   const params = useSearchParams();
   const router = useRouter();
   const { data: session, status } = useSession();
+
   const [seed, setSeed] = useState(0);
   const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(params.get("fromSaved") === "1");
   const [saveError, setSaveError] = useState("");
+  const [meals, setMeals] = useState<Record<MealTime, FoodItem[]> | null>(null);
+  const [mealsLoading, setMealsLoading] = useState(true);
 
   const stats: UserStats = {
     age: Number(params.get("age") ?? 25),
@@ -48,11 +55,25 @@ export function ResultsDashboard() {
 
   const dietType = (params.get("dietType") ?? "non_veg") as DietTag;
   const allergies = params.get("allergies")?.split(",").filter(Boolean) ?? [];
-
   const plan = computeNutritionPlan(stats);
-  const meals = getMealPlan(dietType, plan.calories + seed, allergies);
-
   const goalLabel = { lose: "Weight Loss", maintain: "Maintenance", gain: "Muscle Gain" }[stats.goal];
+
+  // Fetch meal plan from DB via API
+  useEffect(() => {
+    setMealsLoading(true);
+    const p = new URLSearchParams({
+      dietType,
+      calories: String(plan.calories),
+      seed: String(seed),
+      allergies: allergies.join(","),
+    });
+    fetch(`/api/meal-plan?${p.toString()}`)
+      .then((r) => r.json())
+      .then((data) => setMeals(data))
+      .catch(() => setMeals(null))
+      .finally(() => setMealsLoading(false));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed, dietType, plan.calories]);
 
   const handleSave = async () => {
     if (!session) {
@@ -140,22 +161,14 @@ export function ResultsDashboard() {
         {/* Chart + breakdown */}
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
           <Card>
-            <CardHeader>
-              <CardTitle>Macro Breakdown</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>Macro Breakdown</CardTitle></CardHeader>
             <CardContent>
-              <MacroDonutChart
-                proteinG={plan.proteinG}
-                carbsG={plan.carbsG}
-                fatG={plan.fatG}
-              />
+              <MacroDonutChart proteinG={plan.proteinG} carbsG={plan.carbsG} fatG={plan.fatG} />
             </CardContent>
           </Card>
 
           <Card>
-            <CardHeader>
-              <CardTitle>How We Got Here</CardTitle>
-            </CardHeader>
+            <CardHeader><CardTitle>How We Got Here</CardTitle></CardHeader>
             <CardContent className="flex flex-col gap-4 pt-2">
               {[
                 { label: "Basal Metabolic Rate (BMR)", value: `${plan.bmr} kcal`, desc: "Calories your body burns at rest" },
@@ -186,51 +199,59 @@ export function ResultsDashboard() {
             <span className="text-sm text-[var(--muted-foreground)] capitalize">{dietType.replace("_", "-")} diet</span>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {(Object.entries(meals) as [MealTime, typeof meals.breakfast][]).map(([time, items]) => (
-              <div key={time}>
-                <h3 className="font-heading font-semibold text-sm text-[var(--muted-foreground)] uppercase tracking-wide mb-3">
-                  {MEAL_LABELS[time]}
-                </h3>
-                <div className="flex flex-col gap-3">
-                  {items.map((item) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Card className="overflow-hidden hover:shadow-md transition-shadow">
-                        <div className="flex">
-                          <div className="relative w-24 h-24 flex-shrink-0">
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              fill
-                              className="object-cover"
-                              sizes="96px"
-                            />
-                          </div>
-                          <CardContent className="p-3 flex flex-col justify-between flex-1">
-                            <div>
-                              <h4 className="font-semibold text-sm leading-tight">{item.name}</h4>
-                              <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{item.servingSize}</p>
+          {mealsLoading ? (
+            <div className="grid sm:grid-cols-2 gap-5">
+              {MEAL_ORDER.map((t) => (
+                <div key={t} className="rounded-xl border border-[var(--border)] bg-[var(--card)] h-32 animate-pulse" />
+              ))}
+            </div>
+          ) : meals ? (
+            <div className="grid sm:grid-cols-2 gap-5">
+              {MEAL_ORDER.map((time) => {
+                const items: FoodItem[] = meals[time] ?? [];
+                if (items.length === 0) return null;
+                return (
+                  <div key={time}>
+                    <h3 className="font-heading font-semibold text-sm text-[var(--muted-foreground)] uppercase tracking-wide mb-3">
+                      {MEAL_LABELS[time]}
+                    </h3>
+                    <div className="flex flex-col gap-3">
+                      {items.map((item) => (
+                        <motion.div
+                          key={item.id}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Card className="overflow-hidden hover:shadow-md transition-shadow">
+                            <div className="flex">
+                              <div className="relative w-24 h-24 flex-shrink-0">
+                                <Image src={item.image} alt={item.name} fill className="object-cover" sizes="96px" />
+                              </div>
+                              <CardContent className="p-3 flex flex-col justify-between flex-1">
+                                <div>
+                                  <h4 className="font-semibold text-sm leading-tight">{item.name}</h4>
+                                  <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{item.servingSize}</p>
+                                </div>
+                                <div className="flex gap-3 text-xs mt-2">
+                                  <span className="text-orange-500 font-medium">{item.calories} kcal</span>
+                                  <span className="text-green-600">P: {item.proteinG}g</span>
+                                  <span className="text-amber-500">C: {item.carbsG}g</span>
+                                  <span className="text-orange-400">F: {item.fatG}g</span>
+                                </div>
+                              </CardContent>
                             </div>
-                            <div className="flex gap-3 text-xs mt-2">
-                              <span className="text-orange-500 font-medium">{item.calories} kcal</span>
-                              <span className="text-green-600">P: {item.proteinG}g</span>
-                              <span className="text-amber-500">C: {item.carbsG}g</span>
-                              <span className="text-orange-400">F: {item.fatG}g</span>
-                            </div>
-                          </CardContent>
-                        </div>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+                          </Card>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="text-[var(--muted-foreground)] text-sm">Could not load meal plan. Try regenerating.</p>
+          )}
         </div>
 
         {/* Save CTA */}
@@ -242,7 +263,9 @@ export function ResultsDashboard() {
               </h3>
               <p className="text-sm text-[var(--muted-foreground)]">
                 {saved
-                  ? "View it anytime in your dashboard."
+                  ? params.get("fromSaved") === "1"
+                    ? "This plan is already in your dashboard."
+                    : "View it anytime in your dashboard."
                   : session
                   ? "Add this plan to your dashboard to track progress."
                   : "Create a free account to save this plan and track progress."}
@@ -256,11 +279,9 @@ export function ResultsDashboard() {
                 </Button>
               ) : (
                 <Button onClick={handleSave} disabled={saving || status === "loading"}>
-                  {saving ? (
-                    <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>
-                  ) : (
-                    <><Bookmark className="h-4 w-4" /> {session ? "Save Plan" : "Sign Up & Save"}</>
-                  )}
+                  {saving
+                    ? <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>
+                    : <><Bookmark className="h-4 w-4" /> {session ? "Save Plan" : "Sign Up & Save"}</>}
                 </Button>
               )}
               <Button variant="outline" onClick={() => router.push("/plan")}>Start Over</Button>

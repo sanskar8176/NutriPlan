@@ -21,17 +21,19 @@ function NutritionOrb({
 
   useFrame((state) => {
     if (!meshRef.current) return;
+    // Throttle: only update every 2nd frame
+    if (Math.round(state.clock.elapsedTime * 30) % 2 !== 0) return;
     meshRef.current.rotation.x = state.clock.elapsedTime * speed * 0.3;
     meshRef.current.rotation.y = state.clock.elapsedTime * speed * 0.5;
   });
 
   return (
     <Float speed={speed} rotationIntensity={0.4} floatIntensity={0.8}>
-      <Sphere ref={meshRef} args={[scale, 64, 64]} position={position}>
+      <Sphere ref={meshRef} args={[scale, 32, 32]} position={position}>
         <MeshDistortMaterial
           color={color}
           distort={distort}
-          speed={2}
+          speed={1}
           roughness={0.1}
           metalness={0.2}
           transparent
@@ -49,7 +51,7 @@ function Scene() {
       <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffffff" />
       <pointLight position={[-5, -5, -5]} intensity={0.5} color="#22c55e" />
 
-      <Stars radius={80} depth={50} count={800} factor={3} fade speed={0.5} />
+      <Stars radius={80} depth={50} count={300} factor={3} fade speed={0.3} />
 
       {/* Main large orb — protein (green) */}
       <NutritionOrb position={[0, 0, 0]} color="#16a34a" speed={0.8} distort={0.4} scale={1.4} />
@@ -72,8 +74,9 @@ export function HeroAnimation() {
     <div className="w-full h-full relative">
       <Canvas
         camera={{ position: [0, 0, 7], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: false, alpha: true, powerPreference: "low-power" }}
         style={{ background: "transparent" }}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <Scene />

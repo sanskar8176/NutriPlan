@@ -39,6 +39,10 @@ const AI_STAGES = [
   { icon: CheckCircle2, label: "Finalising your plan…",       detail: "Almost ready!" },
 ];
 
+export function hasMealPlanContent(meals: Record<MealTime, FoodItem[]> | null): boolean {
+  return !!meals && Object.values(meals).some((items) => items.length > 0);
+}
+
 function MealLoadingSkeleton({ fromSaved }: { fromSaved: boolean }) {
   const [stage, setStage] = useState(0);
   const [dots, setDots]   = useState("");
@@ -127,6 +131,8 @@ export function ResultsDashboard() {
   const [meals, setMeals] = useState<Record<MealTime, FoodItem[]> | null>(null);
   const [mealsLoading, setMealsLoading] = useState(true);
   const planId = params.get("planId");
+  const mealPlanCacheKey = planId ? `saved-plan:${planId}` : `generated-plan:${params.toString()}`;
+  const canSave = !mealsLoading && hasMealPlanContent(meals);
 
   const stats: UserStats = {
     age: Number(params.get("age") ?? 25),
@@ -146,41 +152,82 @@ export function ResultsDashboard() {
 
   // Fetch meal plan — from saved planId (no AI) or fresh generation
   useEffect(() => {
-    setMealsLoading(true);
-    let url: string;
-    if (planId) {
-      url = `/api/meal-plan?planId=${planId}`;
-    } else {
-      const p = new URLSearchParams({
-        dietType,
-        calories:      String(plan.calories),
-        proteinG:      String(plan.proteinG),
-        carbsG:        String(plan.carbsG),
-        fatG:          String(plan.fatG),
-        age:           String(stats.age),
-        gender:        stats.gender,
-        weightKg:      String(stats.weightKg),
-        heightCm:      String(stats.heightCm),
-        goal:          stats.goal,
-        activityLevel: stats.activityLevel,
-        seed:          String(seed),
-        allergies:     allergies.join(","),
-      });
-      url = `/api/meal-plan?${p.toString()}`;
-    }
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => setMeals(data))
-      .catch(() => setMeals(null))
-      .finally(() => setMealsLoading(false));
+    let active = true;
+    const loadMeals = async () => {
+      if (!planId) {
+        const cachedMeals = sessionStorage.getItem(mealPlanCacheKey);
+        if (cachedMeals) {
+          try {
+            const parsed = JSON.parse(cachedMeals) as Record<MealTime, FoodItem[]>;
+            if (active && hasMealPlanContent(parsed)) {
+              setMeals(parsed);
+              setMealsLoading(false);
+              return;
+            }
+          } catch {
+            sessionStorage.removeItem(mealPlanCacheKey);
+          }
+        }
+      }
+
+      setMealsLoading(true);
+      let url: string;
+      if (planId) {
+        url = `/api/meal-plan?planId=${planId}`;
+      } else {
+        const p = new URLSearchParams({
+          dietType,
+          calories:      String(plan.calories),
+          proteinG:      String(plan.proteinG),
+          carbsG:        String(plan.carbsG),
+          fatG:          String(plan.fatG),
+          age:           String(stats.age),
+          gender:        stats.gender,
+          weightKg:      String(stats.weightKg),
+          heightCm:      String(stats.heightCm),
+          goal:          stats.goal,
+          activityLevel: stats.activityLevel,
+          seed:          String(seed),
+          allergies:     allergies.join(","),
+        });
+        url = `/api/meal-plan?${p.toString()}`;
+      }
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (!active) return;
+        setMeals(data);
+        if (!planId && hasMealPlanContent(data)) {
+          sessionStorage.setItem(mealPlanCacheKey, JSON.stringify(data));
+        }
+      } catch {
+        if (!active) return;
+        setMeals(null);
+      } finally {
+        if (active) {
+          setMealsLoading(false);
+        }
+      }
+    };
+
+    void loadMeals();
+    return () => {
+      active = false;
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seed, dietType, plan.calories, planId]);
+  }, [seed, dietType, plan.calories, planId, mealPlanCacheKey]);
 
   const handleSave = async () => {
     if (!session) {
       router.push(`/auth/signin?callbackUrl=${encodeURIComponent(window.location.href)}`);
       return;
     }
+    if (mealsLoading || !hasMealPlanContent(meals)) {
+      setSaveError("Please wait until your meal plan is fully generated before saving.");
+      return;
+    }
+
     setSaving(true);
     setSaveError("");
     try {
@@ -426,7 +473,7 @@ export function ResultsDashboard() {
                   <BookmarkCheck className="h-4 w-4" /> View Dashboard
                 </Button>
               ) : (
-                <Button onClick={handleSave} disabled={saving || status === "loading"}>
+                <Button onClick={handleSave} disabled={saving || status === "loading" || mealsLoading || !canSave}>
                   {saving
                     ? <><Loader2 className="h-4 w-4 animate-spin" /> Saving…</>
                     : <><Bookmark className="h-4 w-4" /> {session ? "Save Plan" : "Sign Up & Save"}</>}

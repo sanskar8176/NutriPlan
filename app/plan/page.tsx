@@ -108,7 +108,7 @@ export default function PlanPage() {
     router.push(`/results?${params.toString()}`);
   };
 
-  const unit = step1.watch("unit") ?? formData.unit ?? "metric";
+  const unit = formData.unit ?? "metric";
 
   return (
     <div className="min-h-screen bg-[var(--background)] py-12 px-4">

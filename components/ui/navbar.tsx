@@ -4,16 +4,13 @@ import { useTheme } from "next-themes";
 import { useSession, signOut } from "next-auth/react";
 import { Sun, Moon, Leaf, Menu, X, LogOut, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
   const { data: session, status } = useSession();
-  const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   const links = [
     { href: "/#features", label: "Features" },
@@ -51,16 +48,14 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {mounted && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
-          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </Button>
 
           {/* Desktop auth buttons */}
           <div className="hidden md:flex items-center gap-2">

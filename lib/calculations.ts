@@ -102,3 +102,18 @@ export const inchesToCm = (inches: number) => Math.round(inches * 2.54);
 export const cmToInches = (cm: number) => Math.round(cm / 2.54);
 export const ftInToCm = (ft: number, inches: number) =>
   Math.round((ft * 12 + inches) * 2.54);
+
+/** BMI = weight(kg) / height(m)² */
+export function calculateBMI(weightKg: number, heightCm: number): number {
+  if (!heightCm || !weightKg) return 0;
+  return Math.round((weightKg / Math.pow(heightCm / 100, 2)) * 10) / 10;
+}
+
+export type BMICategory = "Underweight" | "Normal" | "Overweight" | "Obese";
+
+export function getBMICategory(bmi: number): { category: BMICategory; color: string } {
+  if (bmi < 18.5) return { category: "Underweight", color: "text-blue-500" };
+  if (bmi < 25)   return { category: "Normal",      color: "text-green-500" };
+  if (bmi < 30)   return { category: "Overweight",  color: "text-amber-500" };
+  return             { category: "Obese",         color: "text-red-500" };
+}

@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Label, Progress, Card, CardContent } from "@/components/ui/index";
 import { step1Schema, step2Schema, step3Schema, step4Schema } from "@/lib/validations";
 import type { Step1Data, Step2Data, Step3Data, Step4Data } from "@/lib/validations";
-import { lbsToKg, ftInToCm } from "@/lib/calculations";
+import { lbsToKg, ftInToCm, calculateBMI, getBMICategory } from "@/lib/calculations";
 
 const STEPS = [
   { title: "Your Basics", icon: User, desc: "Age, height, weight" },
@@ -103,6 +103,7 @@ export default function PlanPage() {
       targetRateKg: String(merged.targetRateKg ?? 0.5),
       dietType: merged.dietType,
       allergies: (merged.allergies ?? []).join(","),
+      bmi: String(calculateBMI(weightKg, heightCm)),
     });
     router.push(`/results?${params.toString()}`);
   };
@@ -181,6 +182,21 @@ function Step1Form({ form, unit }: { form: ReturnType<typeof useForm<Step1Data>>
   const { register, watch, setValue, formState: { errors } } = form;
   const currentUnit = watch("unit") ?? unit;
 
+  // Live BMI calculation
+  const heightCm  = Number(watch("heightCm")  ?? 0);
+  const weightKg  = Number(watch("weightKg")  ?? 0);
+  const heightFt  = Number(watch("heightFt")  ?? 0);
+  const heightIn  = Number(watch("heightIn")  ?? 0);
+  const weightLbs = Number(watch("weightLbs") ?? 0);
+
+  const resolvedHeightCm = currentUnit === "metric" ? heightCm  : ftInToCm(heightFt, heightIn);
+  const resolvedWeightKg = currentUnit === "metric" ? weightKg  : lbsToKg(weightLbs);
+  const bmi = calculateBMI(resolvedWeightKg, resolvedHeightCm);
+  const bmiInfo = bmi > 0 ? getBMICategory(bmi) : null;
+
+  // BMI scale: 15 (left) to 40 (right)
+  const bmiPct = bmi > 0 ? Math.min(100, Math.max(0, ((bmi - 15) / 25) * 100)) : null;
+
   return (
     <div className="flex flex-col gap-5">
       {/* Unit toggle */}
@@ -250,6 +266,33 @@ function Step1Form({ form, unit }: { form: ReturnType<typeof useForm<Step1Data>>
           <div>
             <Label htmlFor="weightLbs" className="mb-1.5 block">Weight (lbs)</Label>
             <Input id="weightLbs" type="number" placeholder="154" {...register("weightLbs")} />
+          </div>
+        </div>
+      )}
+
+      {/* Live BMI card */}
+      {bmiInfo && bmi > 0 && (
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--secondary)]/40 p-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-wide">Your BMI</span>
+            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full bg-[var(--background)] ${bmiInfo.color}`}>
+              {bmiInfo.category}
+            </span>
+          </div>
+          <div className="flex items-end gap-2 mb-3">
+            <span className={`font-heading text-3xl font-bold ${bmiInfo.color}`}>{bmi}</span>
+            <span className="text-xs text-[var(--muted-foreground)] mb-1">kg/m²</span>
+          </div>
+          <div className="relative h-2 rounded-full overflow-hidden bg-gradient-to-r from-blue-400 via-green-400 via-amber-400 to-red-500">
+            {bmiPct !== null && (
+              <div
+                className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-[var(--foreground)] shadow"
+                style={{ left: `calc(${bmiPct}% - 6px)` }}
+              />
+            )}
+          </div>
+          <div className="flex justify-between text-[10px] text-[var(--muted-foreground)] mt-1">
+            <span>15</span><span>18.5</span><span>25</span><span>30</span><span>40</span>
           </div>
         </div>
       )}

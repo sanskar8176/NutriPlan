@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Plus, Trash2, Flame, Calendar } from "lucide-react";
+import { Plus, Trash2, Flame, Calendar, Scale } from "lucide-react";
+import { getBMICategory } from "@/lib/calculations";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/index";
 import type { Plan } from "@prisma/client";
@@ -76,6 +77,14 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
                       <span className="rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] px-2.5 py-0.5 text-xs font-medium capitalize">
                         {plan.dietType.replace("_", "-")}
                       </span>
+                      {plan.bmi && plan.bmi > 0 && (() => {
+                        const { category, color } = getBMICategory(plan.bmi);
+                        return (
+                          <span className={`rounded-full bg-[var(--secondary)] px-2.5 py-0.5 text-xs font-medium flex items-center gap-1 ${color}`}>
+                            <Scale className="h-3 w-3" /> {plan.bmi} · {category}
+                          </span>
+                        );
+                      })()}
                     </div>
 
                     <div className="grid grid-cols-4 gap-2 text-center">
@@ -98,16 +107,18 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
                       className="w-full mt-4"
                       onClick={() => {
                         const p = new URLSearchParams({
-                          age: String(plan.age),
-                          gender: plan.gender,
-                          heightCm: String(plan.heightCm),
-                          weightKg: String(plan.weightKg),
+                          age:           String(plan.age),
+                          gender:        plan.gender,
+                          heightCm:      String(plan.heightCm),
+                          weightKg:      String(plan.weightKg),
                           activityLevel: plan.activityLevel,
-                          goal: plan.goal,
-                          targetRateKg: String(plan.targetRateKg ?? 0.5),
-                          dietType: plan.dietType,
-                          allergies: plan.allergies.join(","),
-                          fromSaved: "1",
+                          goal:          plan.goal,
+                          targetRateKg:  String(plan.targetRateKg ?? 0.5),
+                          dietType:      plan.dietType,
+                          allergies:     plan.allergies.join(","),
+                          planId:        plan.id,
+                          fromSaved:     "1",
+                          ...(plan.bmi ? { bmi: String(plan.bmi) } : {}),
                         });
                         router.push(`/results?${p.toString()}`);
                       }}

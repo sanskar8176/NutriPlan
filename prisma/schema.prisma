@@ -12,13 +12,12 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
-  password      String?   // null for OAuth users
+  password      String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-
-  accounts Account[]
-  sessions Session[]
-  plans    Plan[]
+  accounts      Account[]
+  plans         Plan[]
+  sessions      Session[]
 }
 
 model Account {
@@ -34,8 +33,7 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -57,13 +55,11 @@ model VerificationToken {
 }
 
 model Plan {
-  id        String   @id @default(cuid())
-  userId    String
-  name      String   @default("My Plan")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // User stats
+  id            String     @id @default(cuid())
+  userId        String
+  name          String     @default("My Plan")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
   age           Int
   gender        String
   heightCm      Float
@@ -72,35 +68,49 @@ model Plan {
   goal          String
   targetRateKg  Float?
   dietType      String
-  allergies     String[] @default([])
+  allergies     String[]   @default([])
+  calories      Int
+  proteinG      Int
+  carbsG        Int
+  fatG          Int
+  bmr           Int
+  tdee          Int
+  bmi           Float?
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  meals         PlanMeal[]
+}
 
-  // Computed results
-  calories  Int
-  proteinG  Int
-  carbsG    Int
-  fatG      Int
-  bmr       Int
-  tdee      Int
+model PlanMeal {
+  id          String  @id @default(cuid())
+  planId      String
+  foodId      String
+  mealTime    String
+  position    Int     @default(0)
+  aiGenerated Boolean @default(false)
+  food        Food    @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  plan        Plan    @relation(fields: [planId], references: [id], onDelete: Cascade)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([planId])
 }
 
 model Food {
-  id          String   @id @default(cuid())
-  fdcId       Int      @unique
-  name        String   @unique
+  id          String     @id @default(cuid())
+  fdcId       Int        @unique
+  name        String     @unique
   calories    Float
   proteinG    Float
   carbsG      Float
   fatG        Float
-  fiberG      Float    @default(0)
-  servingSize String   @default("100g")
-  servingG    Float    @default(100)
+  fiberG      Float      @default(0)
+  servingSize String     @default("100g")
+  servingG    Float      @default(100)
   image       String
   mealTimes   String[]
   dietTags    String[]
   category    String
-  isActive    Boolean  @default(true)
+  isActive    Boolean    @default(true)
+  description String     @default("")
+  planMeals   PlanMeal[]
 
   @@index([dietTags])
   @@index([mealTimes])

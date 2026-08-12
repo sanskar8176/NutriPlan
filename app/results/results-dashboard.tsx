@@ -2,16 +2,17 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useSession } from "next-auth/react";
 import {
   ArrowLeft, RefreshCw, Flame, Beef, Wheat, Droplets,
-  BookmarkCheck, Bookmark, Loader2,
+  BookmarkCheck, Bookmark, Loader2, Sparkles, Database, Image as ImageIcon, CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/index";
 import { MacroDonutChart } from "@/components/charts/macro-donut";
 import { computeNutritionPlan } from "@/lib/calculations";
+import { getBMICategory } from "@/lib/calculations";
 import type { UserStats } from "@/lib/calculations";
 import type { DietTag, MealTime, FoodItem } from "@/lib/food-data";
 
@@ -31,6 +32,89 @@ const MACRO_CARDS = [
   { key: "fatG" as const, label: "Fat", unit: "g", icon: Droplets, color: "text-orange-400" },
 ];
 
+const AI_STAGES = [
+  { icon: Sparkles,  label: "Asking AI nutritionist…",       detail: "Gemini is crafting your personalised meal plan" },
+  { icon: Database,  label: "Cross-checking nutrition data…", detail: "Verifying calories & macros against USDA database" },
+  { icon: ImageIcon, label: "Fetching food photos…",          detail: "Finding beautiful images for each meal" },
+  { icon: CheckCircle2, label: "Finalising your plan…",       detail: "Almost ready!" },
+];
+
+function MealLoadingSkeleton({ fromSaved }: { fromSaved: boolean }) {
+  const [stage, setStage] = useState(0);
+  const [dots, setDots]   = useState("");
+
+  useEffect(() => {
+    if (fromSaved) return; // saved plans load fast — just show pulse
+    const stageTimer = setInterval(() => setStage((s) => Math.min(s + 1, AI_STAGES.length - 1)), 6000);
+    const dotsTimer  = setInterval(() => setDots((d) => d.length >= 3 ? "" : d + "."), 500);
+    return () => { clearInterval(stageTimer); clearInterval(dotsTimer); };
+  }, [fromSaved]);
+
+  if (fromSaved) {
+    return (
+      <div className="grid sm:grid-cols-2 gap-5">
+        {MEAL_ORDER.map((t) => (
+          <div key={t} className="rounded-xl border border-[var(--border)] bg-[var(--card)] h-32 animate-pulse" />
+        ))}
+      </div>
+    );
+  }
+
+  const current = AI_STAGES[stage];
+  const Icon    = current.icon;
+
+  return (
+    <div className="flex flex-col items-center gap-6 py-10">
+      {/* Animated icon */}
+      <div className="relative">
+        <div className="w-16 h-16 rounded-full bg-[var(--primary)]/10 flex items-center justify-center">
+          <Icon className="w-7 h-7 text-[var(--primary)] animate-pulse" />
+        </div>
+        <div className="absolute inset-0 rounded-full border-2 border-[var(--primary)]/30 animate-ping" />
+      </div>
+
+      {/* Stage text */}
+      <div className="text-center">
+        <p className="font-heading font-semibold text-lg">{current.label}{dots}</p>
+        <p className="text-sm text-[var(--muted-foreground)] mt-1">{current.detail}</p>
+      </div>
+
+      {/* Stage progress dots */}
+      <div className="flex gap-2">
+        {AI_STAGES.map((s, i) => (
+          <motion.div
+            key={s.label}
+            className="h-2 rounded-full bg-[var(--primary)]"
+            animate={{ width: i === stage ? 24 : 8, opacity: i <= stage ? 1 : 0.3 }}
+            transition={{ duration: 0.3 }}
+          />
+        ))}
+      </div>
+
+      {/* Skeleton cards */}
+      <div className="w-full grid sm:grid-cols-2 gap-5 mt-2">
+        {MEAL_ORDER.map((t, i) => (
+          <motion.div
+            key={t}
+            className="rounded-xl border border-[var(--border)] bg-[var(--card)] h-28 overflow-hidden"
+            animate={{ opacity: [0.4, 0.7, 0.4] }}
+            transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+          >
+            <div className="flex h-full">
+              <div className="w-24 bg-[var(--muted)]/40 flex-shrink-0" />
+              <div className="flex-1 p-3 flex flex-col gap-2 justify-center">
+                <div className="h-3 bg-[var(--muted)]/40 rounded w-3/4" />
+                <div className="h-2 bg-[var(--muted)]/30 rounded w-1/2" />
+                <div className="h-2 bg-[var(--muted)]/20 rounded w-2/3" />
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function ResultsDashboard() {
   const params = useSearchParams();
   const router = useRouter();
@@ -42,6 +126,7 @@ export function ResultsDashboard() {
   const [saveError, setSaveError] = useState("");
   const [meals, setMeals] = useState<Record<MealTime, FoodItem[]> | null>(null);
   const [mealsLoading, setMealsLoading] = useState(true);
+  const planId = params.get("planId");
 
   const stats: UserStats = {
     age: Number(params.get("age") ?? 25),
@@ -55,25 +140,41 @@ export function ResultsDashboard() {
 
   const dietType = (params.get("dietType") ?? "non_veg") as DietTag;
   const allergies = params.get("allergies")?.split(",").filter(Boolean) ?? [];
+  const bmi = Number(params.get("bmi") ?? 0) || undefined;
   const plan = computeNutritionPlan(stats);
   const goalLabel = { lose: "Weight Loss", maintain: "Maintenance", gain: "Muscle Gain" }[stats.goal];
 
-  // Fetch meal plan from DB via API
+  // Fetch meal plan — from saved planId (no AI) or fresh generation
   useEffect(() => {
     setMealsLoading(true);
-    const p = new URLSearchParams({
-      dietType,
-      calories: String(plan.calories),
-      seed: String(seed),
-      allergies: allergies.join(","),
-    });
-    fetch(`/api/meal-plan?${p.toString()}`)
+    let url: string;
+    if (planId) {
+      url = `/api/meal-plan?planId=${planId}`;
+    } else {
+      const p = new URLSearchParams({
+        dietType,
+        calories:      String(plan.calories),
+        proteinG:      String(plan.proteinG),
+        carbsG:        String(plan.carbsG),
+        fatG:          String(plan.fatG),
+        age:           String(stats.age),
+        gender:        stats.gender,
+        weightKg:      String(stats.weightKg),
+        heightCm:      String(stats.heightCm),
+        goal:          stats.goal,
+        activityLevel: stats.activityLevel,
+        seed:          String(seed),
+        allergies:     allergies.join(","),
+      });
+      url = `/api/meal-plan?${p.toString()}`;
+    }
+    fetch(url)
       .then((r) => r.json())
       .then((data) => setMeals(data))
       .catch(() => setMeals(null))
       .finally(() => setMealsLoading(false));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seed, dietType, plan.calories]);
+  }, [seed, dietType, plan.calories, planId]);
 
   const handleSave = async () => {
     if (!session) {
@@ -83,6 +184,16 @@ export function ResultsDashboard() {
     setSaving(true);
     setSaveError("");
     try {
+      // Flatten current meals into the save payload
+      const mealItems: Array<{ foodId: string; mealTime: string; position: number; aiGenerated: boolean }> = [];
+      if (meals) {
+        (Object.entries(meals) as [MealTime, FoodItem[]][]).forEach(([mt, items]) => {
+          items.forEach((item, idx) => {
+            mealItems.push({ foodId: item.id, mealTime: mt, position: idx, aiGenerated: item.aiGenerated ?? false });
+          });
+        });
+      }
+
       const res = await fetch("/api/plans", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -103,6 +214,8 @@ export function ResultsDashboard() {
           fatG: plan.fatG,
           bmr: plan.bmr,
           tdee: plan.tdee,
+          bmi,
+          meals: mealItems,
         }),
       });
       if (!res.ok) {
@@ -132,13 +245,13 @@ export function ResultsDashboard() {
               BMR: {plan.bmr} kcal · TDEE: {plan.tdee} kcal
             </p>
           </div>
-          <Button variant="outline" size="sm" onClick={() => { setSeed((s) => s + 100); setSaved(false); }}>
+          <Button variant="outline" size="sm" onClick={() => { setSeed((s) => s + 100); setSaved(false); }} disabled={!!planId}>
             <RefreshCw className="h-4 w-4" /> Regenerate
           </Button>
         </div>
 
         {/* Macro summary cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {MACRO_CARDS.map((m, i) => (
             <motion.div
               key={m.key}
@@ -157,6 +270,35 @@ export function ResultsDashboard() {
             </motion.div>
           ))}
         </div>
+
+        {/* BMI card */}
+        {bmi && bmi > 0 && (() => {
+          const bmiInfo = getBMICategory(bmi);
+          const bmiPct  = Math.min(100, Math.max(0, ((bmi - 15) / 25) * 100));
+          return (
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="mb-8">
+              <Card className="p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-wide">Body Mass Index (BMI)</span>
+                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full bg-[var(--secondary)] ${bmiInfo.color}`}>{bmiInfo.category}</span>
+                </div>
+                <div className="flex items-end gap-2 mb-3">
+                  <span className={`font-heading text-3xl font-bold ${bmiInfo.color}`}>{bmi}</span>
+                  <span className="text-xs text-[var(--muted-foreground)] mb-1">kg/m²</span>
+                </div>
+                <div className="relative h-2 rounded-full overflow-hidden bg-gradient-to-r from-blue-400 via-green-400 via-amber-400 to-red-500">
+                  <div
+                    className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-[var(--foreground)] shadow"
+                    style={{ left: `calc(${bmiPct}% - 6px)` }}
+                  />
+                </div>
+                <div className="flex justify-between text-[10px] text-[var(--muted-foreground)] mt-1">
+                  <span>Underweight &lt;18.5</span><span>Normal 18.5–25</span><span>Overweight 25–30</span><span>Obese &gt;30</span>
+                </div>
+              </Card>
+            </motion.div>
+          );
+        })()}
 
         {/* Chart + breakdown */}
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
@@ -200,12 +342,9 @@ export function ResultsDashboard() {
           </div>
 
           {mealsLoading ? (
-            <div className="grid sm:grid-cols-2 gap-5">
-              {MEAL_ORDER.map((t) => (
-                <div key={t} className="rounded-xl border border-[var(--border)] bg-[var(--card)] h-32 animate-pulse" />
-              ))}
-            </div>
+            <MealLoadingSkeleton fromSaved={!!planId} />
           ) : meals ? (
+            <AnimatePresence>
             <div className="grid sm:grid-cols-2 gap-5">
               {MEAL_ORDER.map((time) => {
                 const items: FoodItem[] = meals[time] ?? [];
@@ -230,7 +369,15 @@ export function ResultsDashboard() {
                               </div>
                               <CardContent className="p-3 flex flex-col justify-between flex-1">
                                 <div>
-                                  <h4 className="font-semibold text-sm leading-tight">{item.name}</h4>
+                                  <div className="flex items-start justify-between gap-1">
+                                    <h4 className="font-semibold text-sm leading-tight">{item.name}</h4>
+                                    {item.aiGenerated && (
+                                      <span className="text-[10px] bg-[var(--primary)]/10 text-[var(--primary)] rounded-full px-1.5 py-0.5 whitespace-nowrap flex-shrink-0">✦ AI</span>
+                                    )}
+                                  </div>
+                                  {item.description && (
+                                    <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-snug line-clamp-2">{item.description}</p>
+                                  )}
                                   <p className="text-xs text-[var(--muted-foreground)] mt-0.5">{item.servingSize}</p>
                                 </div>
                                 <div className="flex gap-3 text-xs mt-2">
@@ -249,6 +396,7 @@ export function ResultsDashboard() {
                 );
               })}
             </div>
+            </AnimatePresence>
           ) : (
             <p className="text-[var(--muted-foreground)] text-sm">Could not load meal plan. Try regenerating.</p>
           )}

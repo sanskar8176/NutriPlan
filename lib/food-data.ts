@@ -4,14 +4,16 @@ export type DietTag = "non_veg" | "vegetarian" | "vegan" | "eggetarian" | "keto"
 export interface FoodItem {
   id: string;
   name: string;
+  description?: string;
   calories: number;
   proteinG: number;
   carbsG: number;
   fatG: number;
   mealTime: MealTime[];
   dietTags: DietTag[];
-  image: string; // Unsplash URL
+  image: string;
   servingSize: string;
+  aiGenerated?: boolean;
 }
 
 export const FOOD_DATABASE: FoodItem[] = [

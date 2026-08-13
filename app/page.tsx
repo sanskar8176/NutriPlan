@@ -223,7 +223,7 @@ export default async function HomePage() {
       {/* Footer */}
       <footer className="border-t border-[var(--border)] py-8">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--muted-foreground)]">
-          <span>© 2025 NutriPlan. Built with Next.js & ❤️</span>
+          <span>© {new Date().getFullYear()} Sanskar Singh. Built with Next.js & ❤️</span>
           <span>
             Food photos by{" "}
             <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--foreground)]">

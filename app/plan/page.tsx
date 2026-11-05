@@ -1,14 +1,17 @@
 "use client";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, type UseFormReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { ChevronRight, ChevronLeft, User, Activity, Target, Salad } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Progress, Card, CardContent } from "@/components/ui/index";
-import { step1Schema, step2Schema, step3Schema, step4Schema } from "@/lib/validations";
-import type { Step1Data, Step2Data, Step3Data, Step4Data } from "@/lib/validations";
+import { step1Schema, step2Schema, step3Schema, step4Schema, planInputSchema } from "@/lib/validations";
+import type {
+  Step1Data, Step2Data, Step3Data, Step4Data,
+  Step1Input, Step2Input, Step3Input, Step4Input,
+} from "@/lib/validations";
 import { lbsToKg, ftInToCm, calculateBMI, getBMICategory } from "@/lib/calculations";
 
 const STEPS = [
@@ -52,7 +55,10 @@ export default function PlanPage() {
   const router = useRouter();
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState(1);
-  const [formData, setFormData] = useState<Partial<Step1Data & Step2Data & Step3Data & Step4Data>>({
+  const [submitError, setSubmitError] = useState("");
+  // Raw (pre-coercion) values collected across steps; the combined schema turns
+  // them into typed output once, at the end.
+  const [formData, setFormData] = useState<Partial<Step1Input & Step2Input & Step3Input & Step4Input>>({
     unit: "metric",
     activityLevel: "moderate",
     goal: "maintain",
@@ -60,15 +66,13 @@ export default function PlanPage() {
     allergies: [],
   });
 
-  const step1 = useForm<Step1Data>({ resolver: zodResolver(step1Schema), defaultValues: formData as Step1Data });
-  const step2 = useForm<Step2Data>({ resolver: zodResolver(step2Schema), defaultValues: formData as Step2Data });
-  const step3 = useForm<Step3Data>({ resolver: zodResolver(step3Schema), defaultValues: formData as Step3Data });
-  const step4 = useForm<Step4Data>(
-    // @ts-expect-error — zod .default() creates input/output type mismatch with RHF resolver
-    { resolver: zodResolver(step4Schema), defaultValues: { dietType: "non_veg" as const, allergies: [] } }
-  );
+  // zod's coerce/preprocess fields make each form's input type differ from its output type.
+  const step1 = useForm<Step1Input, unknown, Step1Data>({ resolver: zodResolver(step1Schema), defaultValues: { unit: "metric" } });
+  const step2 = useForm<Step2Input, unknown, Step2Data>({ resolver: zodResolver(step2Schema), defaultValues: { activityLevel: "moderate" } });
+  const step3 = useForm<Step3Input, unknown, Step3Data>({ resolver: zodResolver(step3Schema), defaultValues: { goal: "maintain" } });
+  const step4 = useForm<Step4Input, unknown, Step4Data>({ resolver: zodResolver(step4Schema), defaultValues: { dietType: "non_veg", allergies: [] } });
 
-  const forms = [step1, step2, step3, step4];
+  const forms = [step1, step2, step3, step4] as const;
   const currentForm = forms[step];
 
   const go = (newStep: number) => {
@@ -77,19 +81,24 @@ export default function PlanPage() {
   };
 
   const handleNext = async () => {
+    setSubmitError("");
     const valid = await currentForm.trigger();
     if (!valid) return;
-    const values = currentForm.getValues();
+    const values = currentForm.getValues() as Partial<Step1Input & Step2Input & Step3Input & Step4Input>;
     setFormData((prev) => ({ ...prev, ...values }));
     if (step < 3) { go(step + 1); return; }
 
-    // Final step — build query and navigate to results
-    const merged = { ...formData, ...values } as Step1Data & Step2Data & Step3Data & Step4Data;
-    const unit = merged.unit ?? "metric";
-    const heightCm = unit === "metric"
+    // Final step — validate everything together, then navigate to results.
+    const parsed = planInputSchema.safeParse({ ...formData, ...values });
+    if (!parsed.success) {
+      setSubmitError("Something is missing in an earlier step — please go back and check your details.");
+      return;
+    }
+    const merged = parsed.data;
+    const heightCm = merged.unit === "metric"
       ? (merged.heightCm ?? 170)
       : ftInToCm(merged.heightFt ?? 5, merged.heightIn ?? 7);
-    const weightKg = unit === "metric"
+    const weightKg = merged.unit === "metric"
       ? (merged.weightKg ?? 70)
       : lbsToKg(merged.weightLbs ?? 154);
 
@@ -100,7 +109,8 @@ export default function PlanPage() {
       weightKg: String(weightKg),
       activityLevel: merged.activityLevel,
       goal: merged.goal,
-      targetRateKg: String(merged.targetRateKg ?? 0.5),
+      // A rate only makes sense when losing or gaining weight.
+      targetRateKg: merged.goal === "maintain" ? "0.5" : String(merged.targetRateKg ?? 0.5),
       dietType: merged.dietType,
       allergies: (merged.allergies ?? []).join(","),
       bmi: String(calculateBMI(weightKg, heightCm)),
@@ -155,7 +165,7 @@ export default function PlanPage() {
                 {step === 0 && <Step1Form form={step1} unit={unit} />}
                 {step === 1 && <Step2Form form={step2} />}
                 {step === 2 && <Step3Form form={step3} />}
-                {step === 3 && <Step4Form form={step4 as unknown as ReturnType<typeof useForm<Step4Data>>} />}
+                {step === 3 && <Step4Form form={step4} />}
               </motion.div>
             </AnimatePresence>
           </CardContent>
@@ -171,6 +181,9 @@ export default function PlanPage() {
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
+        {submitError && (
+          <p role="alert" className="mt-4 text-sm text-[var(--destructive)] text-center">{submitError}</p>
+        )}
       </div>
     </div>
   );
@@ -178,7 +191,7 @@ export default function PlanPage() {
 
 // ── Step sub-forms ──────────────────────────────────────────────────────────
 
-function Step1Form({ form, unit }: { form: ReturnType<typeof useForm<Step1Data>>; unit: string }) {
+function Step1Form({ form, unit }: { form: UseFormReturn<Step1Input, unknown, Step1Data>; unit: string }) {
   const { register, watch, setValue, formState: { errors } } = form;
   const currentUnit = watch("unit") ?? unit;
 
@@ -300,7 +313,7 @@ function Step1Form({ form, unit }: { form: ReturnType<typeof useForm<Step1Data>>
   );
 }
 
-function Step2Form({ form }: { form: ReturnType<typeof useForm<Step2Data>> }) {
+function Step2Form({ form }: { form: UseFormReturn<Step2Input, unknown, Step2Data> }) {
   const selected = form.watch("activityLevel");
   return (
     <div className="flex flex-col gap-3">
@@ -322,7 +335,7 @@ function Step2Form({ form }: { form: ReturnType<typeof useForm<Step2Data>> }) {
   );
 }
 
-function Step3Form({ form }: { form: ReturnType<typeof useForm<Step3Data>> }) {
+function Step3Form({ form }: { form: UseFormReturn<Step3Input, unknown, Step3Data> }) {
   const selected = form.watch("goal");
   return (
     <div className="flex flex-col gap-4">
@@ -345,24 +358,27 @@ function Step3Form({ form }: { form: ReturnType<typeof useForm<Step3Data>> }) {
       {selected !== "maintain" && (
         <div>
           <Label htmlFor="targetRateKg" className="mb-1.5 block">
-            Target rate (kg/week) — 0.25 to 1.0
+            Target rate (kg/week) — 0.1 to 1.0, default 0.5
           </Label>
           <Input
             id="targetRateKg"
             type="number"
-            step="0.25"
+            step="0.1"
             min="0.1"
             max="1.0"
             placeholder="0.5"
             {...form.register("targetRateKg")}
           />
+          {form.formState.errors.targetRateKg && (
+            <p className="text-xs text-[var(--destructive)] mt-1">{form.formState.errors.targetRateKg.message}</p>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-function Step4Form({ form }: { form: ReturnType<typeof useForm<Step4Data>> }) {
+function Step4Form({ form }: { form: UseFormReturn<Step4Input, unknown, Step4Data> }) {
   const selected = form.watch("dietType");
   const allergies = form.watch("allergies") ?? [];
 

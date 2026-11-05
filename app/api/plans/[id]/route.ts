@@ -1,30 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/auth";
-import { prisma } from "@/lib/prisma";
+import { deletePlanForUser } from "@/lib/plans";
+import { jsonError, internalError } from "@/lib/http";
 
-const DEV = process.env.NODE_ENV === "development";
-function dbLog(op: string, ...args: unknown[]) {
-  if (!DEV) return;
-  console.log(`\n\x1b[35m[NutriPlan:DB:${op}]\x1b[0m`, ...args);
-}
-
-export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+/** DELETE /api/plans/:id — delete one of the caller's plans. */
+export async function DELETE(_req: NextRequest, ctx: RouteContext<"/api/plans/[id]">) {
   const session = await auth();
-  if (!session?.user?.id) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!session?.user?.id) return jsonError("Unauthorized", 401);
 
-  const { id } = await params;
-  dbLog("Plan:FindUnique", `id=${id}`);
-  const plan = await prisma.plan.findUnique({ where: { id } });
+  const { id } = await ctx.params;
+  if (!id || id.length > 64) return jsonError("Invalid plan id", 400);
 
-  if (!plan || plan.userId !== session.user.id) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  try {
+    // Scoped delete: a plan that exists but belongs to someone else is indistinguishable from a missing one.
+    const deleted = await deletePlanForUser(id, session.user.id);
+    if (!deleted) return jsonError("Not found", 404);
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    return internalError("plans:delete", err);
   }
-
-  dbLog("Plan:Delete", `id=${id}`);
-  await prisma.plan.delete({ where: { id } });
-  dbLog("Plan:Delete:OK", `id=${id}`);
-  return NextResponse.json({ ok: true });
 }

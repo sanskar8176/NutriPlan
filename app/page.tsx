@@ -5,26 +5,35 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/index";
 import { HeroAnimation } from "@/components/three/hero-animation-client";
 import { prisma } from "@/lib/prisma";
+import { safeImageUrl } from "@/lib/images";
+
+// The meal preview comes from the database. Re-render at most once an hour
+// (ISR) so a DB hiccup at build time does not freeze the fallback forever and
+// the page stays fast.
+export const revalidate = 3600;
+
+const STATIC_PREVIEW = [
+  { name: "Grilled Salmon & Veggies", cal: 580, tag: "Dinner",    img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" },
+  { name: "Quinoa Power Bowl",        cal: 480, tag: "Lunch",     img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" },
+  { name: "Oatmeal with Berries",     cal: 320, tag: "Breakfast", img: "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80" },
+];
 
 async function getPreviewMeals() {
   try {
     const [breakfast, lunch, dinner] = await Promise.all([
       prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "breakfast" } }, orderBy: { fdcId: "asc" } }),
       prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "lunch" } }, orderBy: { fdcId: "desc" } }),
-      prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "dinner" } }, orderBy: { fdcId: "asc", } }),
+      prisma.food.findFirst({ where: { isActive: true, mealTimes: { has: "dinner" } }, orderBy: { fdcId: "asc" } }),
     ]);
-    return [
-      breakfast && { name: breakfast.name, cal: Math.round(breakfast.calories), tag: "Breakfast", img: breakfast.image },
-      lunch     && { name: lunch.name,     cal: Math.round(lunch.calories),     tag: "Lunch",     img: lunch.image },
-      dinner    && { name: dinner.name,    cal: Math.round(dinner.calories),    tag: "Dinner",    img: dinner.image },
-    ].filter(Boolean);
+    const meals = [
+      breakfast && { name: breakfast.name, cal: Math.round(breakfast.calories), tag: "Breakfast", img: safeImageUrl(breakfast.image, breakfast.category) },
+      lunch     && { name: lunch.name,     cal: Math.round(lunch.calories),     tag: "Lunch",     img: safeImageUrl(lunch.image, lunch.category) },
+      dinner    && { name: dinner.name,    cal: Math.round(dinner.calories),    tag: "Dinner",    img: safeImageUrl(dinner.image, dinner.category) },
+    ].filter((m): m is NonNullable<typeof m> => Boolean(m));
+    return meals.length === 3 ? meals : STATIC_PREVIEW;
   } catch {
-    // DB not ready yet — fall back to static
-    return [
-      { name: "Grilled Salmon & Veggies", cal: 580, tag: "Dinner", img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80" },
-      { name: "Quinoa Power Bowl",        cal: 480, tag: "Lunch",  img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" },
-      { name: "Oatmeal with Berries",     cal: 320, tag: "Breakfast", img: "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=600&q=80" },
-    ];
+    // Database unavailable — show the static preview instead of failing the page.
+    return STATIC_PREVIEW;
   }
 }
 
@@ -52,9 +61,9 @@ const features = [
 ];
 
 const stats = [
-  { value: "98%", label: "Accuracy vs. lab-measured BMR" },
-  { value: "4", label: "Diet types supported" },
-  { value: "20+", label: "Curated meal options" },
+  { value: "Mifflin-St Jeor", label: "Validated BMR formula" },
+  { value: "5", label: "Diet types supported" },
+  { value: "AI + USDA", label: "Generated meals, verified nutrition" },
   { value: "Free", label: "Forever, no credit card" },
 ];
 
@@ -177,7 +186,7 @@ export default async function HomePage() {
           <p className="text-[var(--muted-foreground)] text-lg">Curated meals with accurate nutrition data — not generic filler.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {previewMeals.map((meal) => meal && (
+          {previewMeals.map((meal) => (
             <Card key={meal.name} className="overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div className="relative h-48 overflow-hidden">
                 <Image

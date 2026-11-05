@@ -1,3 +1,5 @@
+import { excludeAllergens } from "@/lib/allergens";
+
 export type MealTime = "breakfast" | "lunch" | "dinner" | "snack";
 export type DietTag = "non_veg" | "vegetarian" | "vegan" | "eggetarian" | "keto";
 
@@ -210,25 +212,79 @@ export const FOOD_DATABASE: FoodItem[] = [
     image: "https://images.unsplash.com/photo-1559181567-c3190ca9be46?w=400&q=80",
     servingSize: "150g cottage cheese + 50g berries",
   },
+  // Nut-free, dairy-free snacks so vegan + allergy combinations still get two snacks
+  {
+    id: "roasted-chana",
+    name: "Roasted Chana (Chickpeas)",
+    description: "Crunchy oven-roasted chickpeas tossed with chaat masala.",
+    calories: 180, proteinG: 9, carbsG: 27, fatG: 4,
+    mealTime: ["snack"],
+    dietTags: ["vegetarian", "vegan", "eggetarian", "non_veg"],
+    image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80",
+    servingSize: "50g",
+  },
+  {
+    id: "fruit-chaat",
+    name: "Seasonal Fruit Chaat",
+    description: "Papaya, guava, apple and pomegranate with a squeeze of lime and black salt.",
+    calories: 150, proteinG: 2, carbsG: 36, fatG: 1,
+    mealTime: ["snack", "breakfast"],
+    dietTags: ["vegetarian", "vegan", "eggetarian", "non_veg"],
+    image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&q=80",
+    servingSize: "1 bowl (250g)",
+  },
+  {
+    id: "sprouts-salad",
+    name: "Moong Sprouts Salad",
+    description: "Protein-rich sprouted moong with cucumber, tomato, onion and lemon.",
+    calories: 160, proteinG: 11, carbsG: 24, fatG: 2,
+    mealTime: ["snack", "breakfast"],
+    dietTags: ["vegetarian", "vegan", "eggetarian", "non_veg"],
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80",
+    servingSize: "1 bowl (150g)",
+  },
+  {
+    id: "boiled-eggs-snack",
+    name: "Boiled Eggs with Black Pepper",
+    description: "Two boiled eggs, a keto-friendly protein snack.",
+    calories: 155, proteinG: 13, carbsG: 1, fatG: 11,
+    mealTime: ["snack", "breakfast"],
+    dietTags: ["eggetarian", "non_veg", "keto"],
+    image: "https://images.unsplash.com/photo-1510693206972-df098062cb71?w=400&q=80",
+    servingSize: "2 eggs",
+  },
 ];
 
+/** Static food id → item lookup (used when a static-fallback plan is saved). */
+export const FOOD_BY_ID: ReadonlyMap<string, FoodItem> = new Map(FOOD_DATABASE.map((f) => [f.id, f]));
+
+/**
+ * Offline / last-resort meal plan from the bundled catalogue.
+ * Deterministic for a given (targetCalories, seed) pair so "Regenerate" rotates
+ * through the catalogue instead of returning the same five items.
+ */
 export function getMealPlan(
   dietType: DietTag,
   targetCalories: number,
-  allergies: string[] = []
+  allergies: string[] = [],
+  seed = 0,
 ): Record<MealTime, FoodItem[]> {
-  const filtered = FOOD_DATABASE.filter(
-    (f) =>
-      f.dietTags.includes(dietType) &&
-      !allergies.some((a) => f.name.toLowerCase().includes(a.toLowerCase()))
+  const filtered = excludeAllergens(
+    FOOD_DATABASE.filter((f) => f.dietTags.includes(dietType)),
+    allergies,
   );
 
+  const rotation = Math.abs(Math.round(targetCalories) + seed);
+  const used = new Set<string>();
+
   const pick = (time: MealTime, count: number): FoodItem[] => {
-    const pool = filtered.filter((f) => f.mealTime.includes(time));
-    // Shuffle deterministically based on calorie target for variety
-    const seed = targetCalories % pool.length || 1;
-    const shuffled = [...pool].sort((a, b) => (a.id.charCodeAt(seed % a.id.length) - b.id.charCodeAt(seed % b.id.length)));
-    return shuffled.slice(0, count);
+    const pool = filtered.filter((f) => f.mealTime.includes(time) && !used.has(f.id));
+    if (pool.length === 0) return [];
+    const offset = rotation % pool.length;
+    const rotated = [...pool.slice(offset), ...pool.slice(0, offset)];
+    const picked = rotated.slice(0, count);
+    picked.forEach((f) => used.add(f.id));
+    return picked;
   };
 
   return {

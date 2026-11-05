@@ -2,23 +2,57 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Plus, Trash2, Flame, Calendar, Scale } from "lucide-react";
+import { Plus, Trash2, Flame, Calendar, Scale, Loader2 } from "lucide-react";
 import { getBMICategory } from "@/lib/calculations";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/index";
-import type { Plan } from "@prisma/client";
+import type { PlanDTO } from "@/lib/types";
 
-export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; userName: string }) {
+export function DashboardClient({ plans: initial, userName }: { plans: PlanDTO[]; userName: string }) {
   const router = useRouter();
   const [plans, setPlans] = useState(initial);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [error, setError] = useState("");
 
-  const deletePlan = async (id: string) => {
-    await fetch(`/api/plans/${id}`, { method: "DELETE" });
-    setPlans((p) => p.filter((x) => x.id !== id));
+  const deletePlan = async (plan: PlanDTO) => {
+    if (!window.confirm(`Delete "${plan.name}"? This cannot be undone.`)) return;
+    setError("");
+    setDeletingId(plan.id);
+    try {
+      const res = await fetch(`/api/plans/${encodeURIComponent(plan.id)}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 404) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error ?? "Could not delete the plan. Please try again.");
+        return;
+      }
+      setPlans((p) => p.filter((x) => x.id !== plan.id));
+    } catch {
+      setError("Network error — please try again.");
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   const goalLabel = (g: string) =>
     ({ lose: "Weight Loss", maintain: "Maintenance", gain: "Muscle Gain" }[g] ?? g);
+
+  const openPlan = (plan: PlanDTO) => {
+    const p = new URLSearchParams({
+      age:           String(plan.age),
+      gender:        plan.gender,
+      heightCm:      String(plan.heightCm),
+      weightKg:      String(plan.weightKg),
+      activityLevel: plan.activityLevel,
+      goal:          plan.goal,
+      targetRateKg:  String(plan.targetRateKg ?? 0.5),
+      dietType:      plan.dietType,
+      allergies:     plan.allergies.join(","),
+      planId:        plan.id,
+      fromSaved:     "1",
+      ...(plan.bmi ? { bmi: String(plan.bmi) } : {}),
+    });
+    router.push(`/results?${p.toString()}`);
+  };
 
   return (
     <div className="min-h-screen bg-[var(--background)] py-12 px-4">
@@ -32,6 +66,12 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
             <Plus className="h-4 w-4" /> New Plan
           </Button>
         </div>
+
+        {error && (
+          <p role="alert" className="mb-6 text-sm text-[var(--destructive)] bg-red-50 dark:bg-red-950 rounded-lg px-3 py-2">
+            {error}
+          </p>
+        )}
 
         {plans.length === 0 ? (
           <Card className="text-center py-16">
@@ -62,15 +102,17 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
                         </div>
                       </div>
                       <button
-                        onClick={() => deletePlan(plan.id)}
-                        className="text-[var(--muted-foreground)] hover:text-[var(--destructive)] transition-colors p-1"
-                        aria-label="Delete plan"
+                        type="button"
+                        onClick={() => deletePlan(plan)}
+                        disabled={deletingId === plan.id}
+                        className="text-[var(--muted-foreground)] hover:text-[var(--destructive)] transition-colors p-1 disabled:opacity-50"
+                        aria-label={`Delete plan ${plan.name}`}
                       >
-                        <Trash2 className="h-4 w-4" />
+                        {deletingId === plan.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
                       </button>
                     </div>
 
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
                       <span className="rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] px-2.5 py-0.5 text-xs font-medium">
                         {goalLabel(plan.goal)}
                       </span>
@@ -101,28 +143,7 @@ export function DashboardClient({ plans: initial, userName }: { plans: Plan[]; u
                       ))}
                     </div>
 
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full mt-4"
-                      onClick={() => {
-                        const p = new URLSearchParams({
-                          age:           String(plan.age),
-                          gender:        plan.gender,
-                          heightCm:      String(plan.heightCm),
-                          weightKg:      String(plan.weightKg),
-                          activityLevel: plan.activityLevel,
-                          goal:          plan.goal,
-                          targetRateKg:  String(plan.targetRateKg ?? 0.5),
-                          dietType:      plan.dietType,
-                          allergies:     plan.allergies.join(","),
-                          planId:        plan.id,
-                          fromSaved:     "1",
-                          ...(plan.bmi ? { bmi: String(plan.bmi) } : {}),
-                        });
-                        router.push(`/results?${p.toString()}`);
-                      }}
-                    >
+                    <Button variant="outline" size="sm" className="w-full mt-4" onClick={() => openPlan(plan)}>
                       <Flame className="h-3.5 w-3.5" /> View Plan
                     </Button>
                   </CardContent>
